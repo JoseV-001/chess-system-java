@@ -6,11 +6,17 @@ import boardgame.Position;
 import chess.pieces.King;
 import chess.pieces.Rook;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ChessMetch {
 
     private int turn;
     private Color currentPlayer;
     private Board board;
+
+    private List<Piece> pieceOnTheBoard = new ArrayList<>();
+    private List<Piece> capturedPieces = new ArrayList<>();
 
     public ChessMetch() {
         board = new Board(8, 8);
@@ -57,6 +63,12 @@ public class ChessMetch {
         Piece p = board.removePiece(source);
         Piece capturePiece = board.removePiece(target);
         board.placePiece(p, target);
+
+        if (capturePiece != null){
+            pieceOnTheBoard.remove(capturePiece);
+            capturedPieces.add(capturePiece);
+        }
+
         return capturePiece;
     }
 
@@ -85,6 +97,7 @@ public class ChessMetch {
 
     private void placeNewPiece(char column, int row, ChessPiece piece) {
         board.placePiece(piece, new ChessPosition(column, row).toPosition());
+        pieceOnTheBoard.add(piece);
     }
 
     private void initialSetup() {
