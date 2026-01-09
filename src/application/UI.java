@@ -1,6 +1,6 @@
 package application;
 
-import chess.ChessMetch;
+import chess.ChessMatch;
 import chess.ChessPiece;
 import chess.ChessPosition;
 import chess.Color;
@@ -51,20 +51,20 @@ public class UI {
         }
     }
 
-    public static void printMatch(ChessMetch chessMetch, List<ChessPiece> capture) {
-        printBoard(chessMetch.getPieces());
+    public static void printMatch(ChessMatch chessMatch, List<ChessPiece> capture) {
+        printBoard(chessMatch.getPieces());
         System.out.println();
         printCapturedPieces(capture);
         System.out.println();
-        System.out.println("Turn: " + chessMetch.getTurn());
-        if (!chessMetch.getCheckMate()) {
-            System.out.println("Wainting player: " + chessMetch.getCurrentPlayer());
-            if (chessMetch.getCheck()) {
+        System.out.println("Turn: " + chessMatch.getTurn());
+        if (!chessMatch.getCheckMate()) {
+            System.out.println("Wainting player: " + chessMatch.getCurrentPlayer());
+            if (chessMatch.getCheck()) {
                 System.out.println("CHECK!");
             }
         } else {
             System.out.println("CHECKMATE!");
-            System.out.println("Winner: " + chessMetch.getCurrentPlayer());
+            System.out.println("Winner: " + chessMatch.getCurrentPlayer());
         }
 
     }

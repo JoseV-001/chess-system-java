@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class ChessMetch {
+public class ChessMatch {
 
     private int turn;
     private Color currentPlayer;
@@ -21,7 +21,7 @@ public class ChessMetch {
     private List<Piece> pieceOnTheBoard = new ArrayList<>();
     private List<Piece> capturedPieces = new ArrayList<>();
 
-    public ChessMetch() {
+    public ChessMatch() {
         board = new Board(8, 8);
         turn = 1;
         currentPlayer = Color.WHITE;
