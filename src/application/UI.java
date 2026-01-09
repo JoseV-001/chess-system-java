@@ -4,6 +4,7 @@ import chess.ChessMetch;
 import chess.ChessPiece;
 import chess.ChessPosition;
 import chess.Color;
+import com.sun.source.tree.IfTree;
 
 import java.sql.SQLOutput;
 import java.util.Arrays;
@@ -59,6 +60,9 @@ public class UI {
         System.out.println();
         System.out.println("Turn: " + chessMetch.getTurn());
         System.out.println("Wainting player: " + chessMetch.getCurrentPlayer());
+        if (chessMetch.getCheck()){
+            System.out.println("CHECK!");
+        }
     }
 
     public static void printBoard(ChessPiece[][] pieces) {
