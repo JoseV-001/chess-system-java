@@ -4,9 +4,7 @@ import chess.ChessMetch;
 import chess.ChessPiece;
 import chess.ChessPosition;
 import chess.Color;
-import com.sun.source.tree.IfTree;
 
-import java.sql.SQLOutput;
 import java.util.Arrays;
 import java.util.InputMismatchException;
 import java.util.List;
@@ -59,10 +57,16 @@ public class UI {
         printCapturedPieces(capture);
         System.out.println();
         System.out.println("Turn: " + chessMetch.getTurn());
-        System.out.println("Wainting player: " + chessMetch.getCurrentPlayer());
-        if (chessMetch.getCheck()){
-            System.out.println("CHECK!");
+        if (!chessMetch.getCheckMate()) {
+            System.out.println("Wainting player: " + chessMetch.getCurrentPlayer());
+            if (chessMetch.getCheck()) {
+                System.out.println("CHECK!");
+            }
+        } else {
+            System.out.println("CHECKMATE!");
+            System.out.println("Winner: " + chessMetch.getCurrentPlayer());
         }
+
     }
 
     public static void printBoard(ChessPiece[][] pieces) {
